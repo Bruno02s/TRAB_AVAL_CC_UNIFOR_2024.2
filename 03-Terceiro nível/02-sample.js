@@ -1,20 +1,31 @@
-async function buscarEFiltrarPessoas() {
+async function filtrarPessoas(pessoas, filtro) {
     try {
-        const resposta = await fetch('https://swapi.dev/api/people/');
-        const dados = await resposta.json();
-
-        const pessoasComL = dados.results.filter(pessoa => pessoa.name.startsWith('L'));
-
-        console.log('Pessoas cujo nome começa com L:');
-        pessoasComL.forEach(pessoa => {
+        const pessoasComFiltro = pessoas.results.filter(pessoa =>
+            pessoa.name.startsWith(filtro)
+        );
+  
+        console.log(`Pessoas cujo nome começa com ${filtro}:`);
+  
+        pessoasComFiltro.forEach(pessoa => {
             console.log(pessoa.name);
         });
-
-        console.log(`Total de pessoas encontradas: ${dados.results.length}`);
-
     } catch (erro) {
-        console.error('Erro ao buscar pessoas:', erro);
+        console.error("Erro ao filtrar pessoas:", erro);
     }
 }
-
-buscarEFiltrarPessoas();
+  
+async function buscarPessoas(nomeComecaCom) {
+    try {
+        const resposta = await fetch("https://swapi.dev/api/people/");
+        const pessoas = await resposta.json();
+      
+        console.log(`Total de pessoas encontradas: ${pessoas.results.length}`);
+      
+        filtrarPessoas(pessoas, nomeComecaCom);
+    } catch(erro) {
+        console.error("Erro ao buscar pessoas:", erro);
+    }
+}
+  
+const LETRA_INICIAL = "B";
+buscarPessoas(LETRA_INICIAL);
