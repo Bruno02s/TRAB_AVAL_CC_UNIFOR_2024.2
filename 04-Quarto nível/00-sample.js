@@ -23,6 +23,7 @@ async function buscarPersonagem() {
         mostrarErro(erro.message, "danger");
     }
 }
+document.getElementById("botaoBuscar").addEventListener("click", buscarPersonagem);
 
 function mostrarErro(mensagem, tipo) {
     const mensagemDiv = document.getElementById("mensagem");
