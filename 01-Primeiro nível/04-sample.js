@@ -1,6 +1,7 @@
-let fcr = function(a, b) {
-    return a + b;
+let somar = function(primeiroTermo, segundoTermo) {
+    return primeiroTermo + segundoTermo;
 }
-
-let rsl = fcr(3, 5);
-console.log(rsl);
+primeiroNumero = 3;
+segundoNumero = 5
+let resultadoSoma = somar(primeiroNumero, segundoNumero);
+console.log(resultadoSoma);

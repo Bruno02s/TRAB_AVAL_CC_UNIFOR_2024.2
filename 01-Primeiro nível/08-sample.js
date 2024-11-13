@@ -1,7 +1,7 @@
-let p = { n: "Maria", i: 28 };
-
-function maior(pessoa) {
-    return pessoa.i >= 18;
+let pessoa = { nome: "Maria", idade: 28 };
+let maiorIdade = 18;
+function avaliaIdade(pessoa) {
+    return pessoa.idade >= maiorIdade;
 }
 
-console.log(maior(p));
+console.log(avaliaIdade(pessoa));
