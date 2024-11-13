@@ -1,13 +1,13 @@
-let nome = "Pedro";
-let idade = 25;
-let statusAtividade = true;
+const nome = "Pedro";
+const idade = 25;
+const statusAtividade = true;
 
-function confirmarStatusAtvidade(nome, idade, status) {
+function confirmarStatusAtividade(nome, idade, status) {
     if (status) {
-        console.log(nome + " tem " + idade + " anos e está ativo.");
+        console.log(`${nome} tem ${idade} anos e está ativo.`);
     } else {
-        console.log(nome + " está inativo.");
+        console.log(`${nome} está inativo.`);
     }
 }
 
-confirmarStatusAtvidade(nome, idade, statusAtividade);
+confirmarStatusAtividade(nome, idade, statusAtividade);

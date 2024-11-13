@@ -1,5 +1,5 @@
-let pessoa = { nome: "Maria", idade: 28 };
-let maiorIdade = 18;
+const pessoa = { nome: "Maria", idade: 28 };
+const maiorIdade = 18;
 function avaliaIdade(pessoa) {
     return pessoa.idade >= maiorIdade;
 }

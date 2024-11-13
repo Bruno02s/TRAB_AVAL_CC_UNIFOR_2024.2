@@ -1,4 +1,4 @@
-let acessoPerimitido = true;
+const acessoPerimitido = true;
 
 function verificarAcesso(user) {
     if (acessoPerimitido && user.isAdmin) {
@@ -8,5 +8,5 @@ function verificarAcesso(user) {
     }
 }
 
-let usuario = { nome: "João", admin: true };
+const usuario = { nome: "João", admin: true };
 verificarAcesso(usuario);

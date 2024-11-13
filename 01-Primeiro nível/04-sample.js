@@ -1,7 +1,7 @@
-let somar = function(primeiroTermo, segundoTermo) {
+function soma(primeiroTermo, segundoTermo) {
     return primeiroTermo + segundoTermo;
 }
-primeiroNumero = 3;
-segundoNumero = 5
-let resultadoSoma = somar(primeiroNumero, segundoNumero);
+const primeiroNumero = 3;
+const segundoNumero = 5;
+const resultadoSoma = soma(primeiroNumero, segundoNumero);
 console.log(resultadoSoma);

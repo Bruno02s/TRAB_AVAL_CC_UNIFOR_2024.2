@@ -1,6 +1,6 @@
-let primeiroAluno = "João";
-let segundoAluno = "Ana";
-let terceiroAluno = "Carlos";
+const primeiroAluno = "João";
+const segundoAluno = "Ana";
+const terceiroAluno = "Carlos";
 
 function exibirAlunos() {
     console.log(primeiroAluno);
