@@ -13,4 +13,4 @@
 
 - Rodrigo Castelo Branco de Vasconcelos | Matrícula: 2413764 | Github [@Branco26](https://github.com/branco26)
    
-- Bruno Lourenco dos Santos | Matrícula: 2320449 | Github [bruno-santos-id](https://github.com/bruno-santos-id)
+- Bruno Lourenco dos Santos | Matrícula: 2320449 | Github [@bruno-santos-id](https://github.com/bruno-santos-id)
