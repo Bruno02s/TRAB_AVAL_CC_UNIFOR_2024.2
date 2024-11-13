@@ -5,5 +5,5 @@ async function buscarNave(id) {
     
     console.log(nomeNave);
 }
-
-buscarNave(10);
+const idDeBusca = 10;
+buscarNave(idDeBusca);
