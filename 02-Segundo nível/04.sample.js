@@ -9,7 +9,7 @@ function tentarLogin(senha) {
         tentativas++;
     }
 
-    return 'Tentativas de login excedidas.';
+    return Tentativas de login excedidas.';
 }
 
 console.log(tentarLogin('123'));

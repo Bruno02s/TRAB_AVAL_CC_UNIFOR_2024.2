@@ -1,3 +1,44 @@
+
+const ANO_2023 = 2023;
+const MES_FEVEREIRO = 1;  
+const DIA_15 = 15;
+
+const ANO_2024 = 2024;
+const MES_AGOSTO = 8;
+const DIA_1 = 1;
+
+const ANO_2020 = 2020;
+const MES_MAIO = 4;
+const DIA_22 = 22;
+const MES_NOVEMBRO = 10;
+const ANO_2022 = 2022;
+const MES_OUTUBRO = 9;
+const DIA_5 = 5;
+
+const ANO_2021 = 2021;
+const DIA_31 = 31;
+const DIA_10 = 10;
+const DIA_25 = 25;
+
+const DATA_CRIACAO_CARLOS = new Date(ANO_2023, MES_FEVEREIRO, DIA_15);
+const ULTIMO_LOGIN_CARLOS = new Date(ANO_2024, MES_AGOSTO, DIA_1);
+
+const DATA_CRIACAO_ANA = new Date(ANO_2020, MES_MAIO, DIA_22);
+const ULTIMO_LOGIN_ANA = new Date(ANO_2024, MES_AGOSTO, DIA_31);
+
+const DATA_CRIACAO_JOSE = new Date(ANO_2022, MES_OUTUBRO, DIA_5);
+const ULTIMO_LOGIN_JOSE = new Date(ANO_2024, MES_AGOSTO, DIA_10);
+
+const DATA_CRIACAO_MARIA = new Date(ANO_2021, MES_FEVEREIRO, DIA_10);
+const ULTIMO_LOGIN_MARIA = new Date(ANO_2023, MES_NOVEMBRO, DIA_25);
+
+const ROLE_ADMIN = "admin";
+const ONE_YEAR_MS = 31536000000; 
+const LOGIN_ATTEMPT_LIMIT = 4;
+const LOGIN_ATTEMPT_LIMIT_TWO = 2;
+const LOGIN_ATTEMPT_LIMIT_THREE = 3;
+
+// Classe Z
 class Z {
     constructor({ a, b, c, d, e, f, g, h }) {
         try {
@@ -24,28 +65,13 @@ class Z {
 
     y() {
         try {
-            if (this.c === ROLE_ADMIN) {
-                console.log("Admin pode acessar todas as áreas.");
-            } else {
-                console.log("Convidado tem acesso limitado.");
-            }
+            console.log(this.c === ROLE_ADMIN 
+                ? "Admin pode acessar todas as áreas." : "Convidado tem acesso limitado.");
         } catch (error) {
             console.error("Erro ao verificar a role do usuário:", error);
         }
     }
 }
-
-// Constantes para valores que antes eram números mágicos
-const ROLE_ADMIN = "admin";
-const ROLE_GUEST = "guest";
-const ONE_YEAR_MS = 31536000000; // 1 ano em milissegundos
-const LOGIN_ATTEMPT_LIMIT = 4;
-const CREATION_YEAR_CARLOS = 2023;
-const CREATION_MONTH_CARLOS = 1;
-const CREATION_DAY_CARLOS = 15;
-const LOGIN_YEAR_CARLOS = 2024;
-const LOGIN_MONTH_CARLOS = 8;
-const LOGIN_DAY_CARLOS = 1;
 
 function contarAdmins(users) {
     try {
@@ -55,103 +81,68 @@ function contarAdmins(users) {
                 contador++;
             }
         }
-        return contador;
+        return contador; 
     } catch (error) {
         console.error("Erro ao contar usuários com a role de admin:", error);
-        return 0;
+        return 0; 
     }
 }
 
-// Função para verificar se o número de tentativas de login é excessivo
+
+
 function verificarTentativasExcessivas(usuario, limite = LOGIN_ATTEMPT_LIMIT) {
     try {
-        console.log(
-            usuario.h > limite
-                ? "Tentativas de login excessivas."
-                : "Tentativas de login sob controle."
-        );
+        console.log(usuario.h > limite ? "Tentativas de login excessivas." : "Tentativas de login sob controle.");
     } catch (error) {
         console.error("Erro ao verificar tentativas de login:", error);
     }
 }
 
-// Função para identificar qual usuário logou mais recentemente
 function usuarioMaisRecente(u1, u2) {
     try {
-        return u1.e > u2.e
-            ? `${u1.a} logou mais recentemente.`
-            : `${u2.a} logou mais recentemente.`;
+        if (u1.e > u2.e) {
+            return `${u1.a} logou mais recentemente.`;
+        } else if (u1.e < u2.e) {
+            return `${u2.a} logou mais recentemente.`;
+        } else {
+            return "Ambos os usuários têm o mesmo último login.";  
+        }
     } catch (error) {
         console.error("Erro ao verificar o último login dos usuários:", error);
-        return null;
+        return "Erro ao comparar datas de login.";  
     }
 }
 
-// Função para verificar se o usuário foi criado recentemente
+
 function verificarUsuarioRecente(usuario) {
     try {
         const agora = new Date();
-        console.log(
-            agora - usuario.d < ONE_YEAR_MS
-                ? "Usuário criado recentemente."
-                : "Usuário antigo."
-        );
+        console.log(agora - usuario.d < ONE_YEAR_MS ? "Usuário criado recentemente." : "Usuário antigo.");
     } catch (error) {
         console.error("Erro ao verificar a data de criação do usuário:", error);
     }
 }
 
 const usrs = [
-    new Z({
-        a: "Carlos",
-        b: 25,
-        c: ROLE_ADMIN,
-        d: new Date(CREATION_YEAR_CARLOS, CREATION_MONTH_CARLOS, CREATION_DAY_CARLOS),
-        e: new Date(LOGIN_YEAR_CARLOS, LOGIN_MONTH_CARLOS, LOGIN_DAY_CARLOS),
-        f: true,
-        g: 100,
-        h: 2,
-    }),
-    new Z({
-        a: "Ana",
-        b: 30,
-        c: ROLE_GUEST,
-        d: new Date(2020, 4, 22),
-        e: new Date(2024, 7, 31),
-        f: true,
-        g: 50,
-        h: 3,
-    }),
-    new Z({
-        a: "José",
-        b: 29,
-        c: ROLE_ADMIN,
-        d: new Date(2022, 10, 5),
-        e: new Date(2024, 6, 10),
-        f: false,
-        g: 200,
-        h: 5,
-    }),
-    new Z({
-        a: "Maria",
-        b: 35,
-        c: ROLE_GUEST,
-        d: new Date(2021, 2, 10),
-        e: new Date(2023, 12, 25),
-        f: false,
-        g: 80,
-        h: 7,
-    }),
+    new Z({ a: "Carlos", b: 25, c: ROLE_ADMIN, d: DATA_CRIACAO_CARLOS, e: ULTIMO_LOGIN_CARLOS,
+        f: true, g: 100, h: LOGIN_ATTEMPT_LIMIT_TWO }),
+    new Z({ a: "Ana", b: 30, c: "guest", d: DATA_CRIACAO_ANA, e: ULTIMO_LOGIN_ANA, 
+        f: true, g: 50, h: LOGIN_ATTEMPT_LIMIT_THREE }),
+    new Z({ a: "José", b: 29, c: ROLE_ADMIN, d: DATA_CRIACAO_JOSE, e: ULTIMO_LOGIN_JOSE, 
+        f: false, g: 200, h: 5 }),
+    new Z({ a: "Maria", b: 35, c: "guest", d: DATA_CRIACAO_MARIA, e: ULTIMO_LOGIN_MARIA, 
+        f: false, g: 80, h: 7 })
 ];
 
 try {
+    const OPERADOR2 = 2;
+    const OPERADOR3 = 3;
     console.log(`Usuários admin: ${contarAdmins(usrs)}`);
     usrs[0].x();
     usrs[1].y();
-    verificarTentativasExcessivas(usrs[2]);
-    console.log(usuarioMaisRecente(usrs[0], usrs[3]));
-    verificarUsuarioRecente(usrs[3]);
+    verificarTentativasExcessivas(usrs[OPERADOR2]);
+    console.log(usuarioMaisRecente(usrs[0], usrs[OPERADOR3]));
+    verificarUsuarioRecente(usrs[OPERADOR3]);
 } catch (error) {
     console.error("Erro na execução principal:", error);
 }
-
