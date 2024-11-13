@@ -9,17 +9,29 @@ const TAXA_IMPOSTO_BAIXO = 0.11;
 const MEDIA_ALTO_IMPOSTO = 5000;
 const MEDIA_MEDIA_IMPOSTO = 3000;
 
-function validarParametros(horasTrabalhadas, valorHora, cargo) {
+function validarHorasTrabalhadas(horasTrabalhadas) {
     if (typeof horasTrabalhadas !== "number" || horasTrabalhadas <= 0) {
         throw new Error("Horas trabalhadas inválidas.");
     }
+}
+
+function validarValorHora(valorHora) {
     if (typeof valorHora !== "number" || valorHora <= 0) {
         throw new Error("Valor por hora inválido.");
     }
+}
+
+function validarCargo(cargo) {
     const cargosValidos = ["gerente", "supervisor", "outros"];
     if (!cargosValidos.includes(cargo)) {
         throw new Error("Cargo inválido.");
     }
+}
+
+function validarParametros(horasTrabalhadas, valorHora, cargo) {
+    validarHorasTrabalhadas(horasTrabalhadas);
+    validarValorHora(valorHora);
+    validarCargo(cargo);
 }
 
 function calcularSalarioBase(horasTrabalhadas, valorHora) {
