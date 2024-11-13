@@ -5,9 +5,35 @@ const OPERACAO_SOMA = 1;
 const OPERACAO_MULTIPLICACAO = 2;
 const OPERACAO_SUBTRACAO = 3;
 
+const ITEM_VALUE_1 = 10;
+const ITEM_VALUE_2 = 20;
+const ITEM_VALUE_3 = 30;
+const ITEM_VALUE_4 = 40;
+const ITEM_VALUE_5 = 50;
+
+const MAIORIDADE = 18;
+
+const ITEM_INICIAL = 5;
+const ITEM_SECUNDARIO = 7;
+const ITEM_TERCIARIO = 9;
+const ITEM_QUATERNARIO = 11;
+
+const OPERANDO_A = 2;
+const OPERANDO_B = 3;
+
+const NUMERO_PROCESSAMENTO = 10;
+
+const DIVIDENDO = 2;
+
 function executarPrincipal() {
     try {
-        const itens = [10, 20, 30, 40, 50];
+        const itens = [
+            ITEM_VALUE_1,
+            ITEM_VALUE_2,
+            ITEM_VALUE_3,
+            ITEM_VALUE_4,
+            ITEM_VALUE_5
+        ];
         const total = calcularTotal(itens, MULTIPLICADOR_TOTAL);
         
         const usuario = obterUsuario(ID_USUARIO);
@@ -56,7 +82,7 @@ function verificarStatusUsuario(usuario, statusAtivo) {
 
 function atualizarDados(usuario) {
     try {
-        if (usuario !== null && usuario.idade > 18) {
+        if (usuario !== null && usuario.idade > MAIORIDADE) {
             console.log("Atualizando usuário:", usuario.id);
             salvarDados();
             
@@ -76,25 +102,18 @@ function salvarDados() {
     }
 }
 
+function getOperationResult(operationType, b, c) {
+    if (operationType === OPERACAO_SOMA) return b + c;
+    if (operationType === OPERACAO_MULTIPLICACAO) return b * c;
+    if (operationType === OPERACAO_SUBTRACAO) return b - c;
+    if (c === 0) throw new Error("Divisão por zero");
+    return b / c;
+}
+
 function calcular(a, b, c) {
     try {
-        let resultado;
-        switch (a) {
-            case OPERACAO_SOMA:
-                resultado = b + c;
-                break;
-            case OPERACAO_MULTIPLICACAO:
-                resultado = b * c;
-                break;
-            case OPERACAO_SUBTRACAO:
-                resultado = b - c;
-                break;
-            default:
-                if (c === 0) throw new Error("Divisão por zero");
-                resultado = b / c;
-        }
-
-        const invertido = resultado.toString().split('').reverse().join('');
+        const resultado = getOperationResult(a, b, c);
+        const invertido = resultado.toString().split("").reverse().join("");
         console.log("String invertida:", invertido);
         return invertido;
     } catch (error) {
@@ -107,7 +126,7 @@ function processarDados(n) {
     try {
         let resultado = 0;
         for (let i = 1; i <= n; i++) {
-            resultado += (i % 2 === 0) ? i : -i;
+            resultado += (i % DIVIDENDO === 0) ? i : -i;
         }
         console.log("Resultado do processamento:", resultado);
         exibirDados();
@@ -129,7 +148,7 @@ function exibirDados() {
 
 function calcularItens() {
     try {
-        const itens = [5, 7, 9, 11];
+        const itens = [ITEM_INICIAL, ITEM_SECUNDARIO, ITEM_TERCIARIO, ITEM_QUATERNARIO];
         const total = calcularTotal(itens, MULTIPLICADOR_TOTAL);
         exibirInformacoes();
         console.log("Cálculo total:", total);
@@ -152,8 +171,8 @@ function exibirInformacoes() {
 // Chamadas principais
 try {
     executarPrincipal();
-    console.log("Resultado do cálculo:", calcular(OPERACAO_SOMA, 2, 3));
-    console.log("Resultado do processamento de dados:", processarDados(10));
+    console.log("Resultado do cálculo:", calcular(OPERACAO_SOMA, OPERANDO_A, OPERANDO_B));
+    console.log("Resultado do processamento de dados:", processarDados(NUMERO_PROCESSAMENTO));
     console.log("Resultado da função calcularItens:", calcularItens());
 } catch (error) {
     console.error("Erro no bloco principal:", error.message);

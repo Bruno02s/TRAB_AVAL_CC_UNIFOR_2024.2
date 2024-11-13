@@ -39,6 +39,6 @@ export default [
       ],
       "prefer-template": "error",
     },
-    ignores: ["**/node_modules/**"],
+    ignores: ["**/node_modules/**", "**eslint.config.mjs"]
   }
 ];
