@@ -1,5 +1,5 @@
 function achaPares(listaNumeros) {
-    let listaPares = [];
+    const listaPares = [];
     for (let i = 0; i < listaNumeros.length; i++) {
         if (listaNumeros[i] % 2 === 0) {
             listaPares.push(listaNumeros[i]);
@@ -8,6 +8,6 @@ function achaPares(listaNumeros) {
     return listaPares;
 }
 
-let numerosAvaliados = [1, 2, 3, 4, 5, 6];
-let numerosPares = achaPares(numerosAvaliados);
+const numerosAvaliados = [1, 2, 3, 4, 5, 6];
+const numerosPares = achaPares(numerosAvaliados);
 console.log(numerosPares);
