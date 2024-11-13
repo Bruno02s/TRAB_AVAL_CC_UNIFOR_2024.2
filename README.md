@@ -11,6 +11,6 @@
 
 - Guilherme Cesar Landim Peixoto | Matrícula: 2320470 | Github [@GCUnifor](https://github.com/GCUnifor)
 
-- Rodrigo Castelo Branco de Vasconcelos | Matrícula: 2413764 | Github [bruno-santos-id](https://github.com/bruno-santos-id)
-
-- Bruno Lourenco dos Santos | Matrícula: 2320449 | Github [@profmiqueias](https://github.com/profmiqueias)
+- Rodrigo Castelo Branco de Vasconcelos | Matrícula: 2413764 | Github [@profmiqueias](https://github.com/profmiqueias)
+   
+- Bruno Lourenco dos Santos | Matrícula: 2320449 | Github [bruno-santos-id](https://github.com/bruno-santos-id)
