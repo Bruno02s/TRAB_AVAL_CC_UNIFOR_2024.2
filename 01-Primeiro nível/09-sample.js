@@ -4,5 +4,6 @@ class Gestor {
         this.idade = i;
     }
 }
-let IDADE = 40;
-const p = new Gestor("Lucas", 40);
+const IDADE = 40;
+let p = new Gestor("Lucas", 40);
+
